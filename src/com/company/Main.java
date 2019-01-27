@@ -2,9 +2,10 @@ package com.company;
 
 public class Main {
 
-    private static StringBuilder encode(String text, int shift) {
+    private static StringBuilder encode(String text) {
         //creating string builder
         StringBuilder sb = new StringBuilder();
+        int shift = Integer.parseInt(String.valueOf(text.charAt(0)));
         for (int i = 0; i < text.length(); i++) {
             //cycle trough all the chars in our text
             char ch = text.toLowerCase().charAt(i);
@@ -28,9 +29,10 @@ public class Main {
         return sb;
     }
 
-    private static StringBuilder decode(String text, int shift) {
+    private static StringBuilder decode(String text) {
         //creating string builder
         StringBuilder sb = new StringBuilder();
+        int shift = Integer.parseInt(String.valueOf(text.charAt(0)));
         //making the text lowercase
         String lowerText = text.toLowerCase();
         //cycle trough every char in the text
@@ -56,13 +58,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        String textToEncode = "Ana are zahar si Ion are mere si quartz!!";
+        String textToEncode = "3Ana are zahar si Ion are mere si quartz!!";
         System.out.println(textToEncode);
         System.out.println("Encoding the text");
-        String encodedText = encode(textToEncode, 10).toString();
+        String encodedText = encode(textToEncode).toString();
         System.out.println(encodedText);
         System.out.println("Decoding the text");
-        String decodedText = decode(encodedText, 10).toString();
+        String decodedText = decode(encodedText).toString();
         System.out.println(decodedText);
     }
 }
